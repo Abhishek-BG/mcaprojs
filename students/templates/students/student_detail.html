@@ -1,0 +1,6 @@
+<h2>{{ student.name }}</h2>
+<p>Email: {{ student.email }}</p>
+<p>Age: {{ student.age }}</p>
+<p>Joined: {{ student.joined_on }}</p>
+<a href="{% url 'student_update' student.pk %}">Edit</a>
+<a href="{% url 'student_list' %}">Back</a>
