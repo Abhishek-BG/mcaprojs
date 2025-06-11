@@ -8,13 +8,17 @@ people = [
     {'name':'mukesh','age':22,'active':False,'per':96},
     {'name':'kirmada','age':20,'active':True,'per':90},
     ]
+pages= [{'name':'Home Page','url':'home'},
+        {'name':'Login Page','url':'login'}
+]
 def home(request): #controller  #http://127.0.0.1:8000/students/
     return render(request,'students/home.html',
-                  context={'peoples':people})
-
+                  context={'peoples':people,
+                           'items':pages})
 
 def StudentLogin(request):
-    return render(request,'students/login.html')
+    return render(request,'students/login.html'
+                  ,context={'items':pages})
     #return render(request,templatefile name)
 
 def StudentDashBoard(request):

@@ -3,8 +3,10 @@
     <title>Welcome to Student Management APp</title>
   </head>
   <body>
+    
+    {% include "./header.html" %}
     <h1>Student Management App</h1>
-
+    
     <table border="3">
       <thead>
         <tr>
@@ -16,16 +18,15 @@
       </thead>
       <tbody>
         {%for student in peoples%}
-       
         <tr>
           <td>{{forloop.counter}}</td>
           <td>{{student.name}}</td>
-          <td {% if student.age > 20 %} style="background-color:green" {% endif %}>
-             {{ student.age }}
+          <td {% if student.age > 20 %} style="background-color:green"
+            {% endif %}> {{ student.age }}
           </td>
-          <td>{%if student.active == True %} ✅ {%else%} ❌ {%endif%}</td>
+          <td>{%if student.active == True %} ✅ {%else%} ❌ 
+            {%endif%}</td>
         </tr>
-       
         {%endfor%}
       </tbody>
     </table>

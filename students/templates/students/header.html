@@ -1,0 +1,11 @@
+<div>
+    <nav>
+        <h1>Header</h1>
+        <ol>
+           {% for item in items %}
+            <li><a href="{% url item.url %}">
+                {{item.name}}</a></li>
+            {% endfor %}
+        </ol>
+    </nav>
+</div>
