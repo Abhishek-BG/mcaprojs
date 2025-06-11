@@ -3,29 +3,36 @@
     <title>Welcome to Student Management APp</title>
   </head>
   <body>
-    
     {% include "./header.html" %}
     <h1>Student Management App</h1>
-    
+
     <table border="3">
       <thead>
         <tr>
           <th>sl</th>
           <th>name</th>
           <th>age</th>
-          <th>active</th>
+          <th>bio</th>
+          <th>Verified</th>
+          <th>Joined on</th>
         </tr>
       </thead>
       <tbody>
-        {%for student in peoples%}
+        {%for student in students%}
         <tr>
           <td>{{forloop.counter}}</td>
           <td>{{student.name}}</td>
-          <td {% if student.age > 20 %} style="background-color:green"
-            {% endif %}> {{ student.age }}
-          </td>
-          <td>{%if student.active == True %} ✅ {%else%} ❌ 
-            {%endif%}</td>
+          <td>{{student.age}}</td>
+          <td>{{student.bio}}</td>
+          <td 
+           {% if student.is_verified %} 
+          style="background-color:green;color:white" 
+          {%else%}
+           style="background-color:red;color:white" 
+          {%endif%}>
+          {{student.is_verified}}
+        </td>
+          <td>{{student.joined_on}}</td>
         </tr>
         {%endfor%}
       </tbody>
