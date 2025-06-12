@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Courses</title>
+  </head>
+  <body>
+    <h4><a href="{% url 'create_course' %}" >+Create Courses</a></h4>
+    <table border="3px">
+      <thead>
+        <tr>
+          <th>sl</th>
+          <th>name</th>
+          <th>description</th>
+          <th>is_active</th>
+          <th>created_at</th>
+        <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses%}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{course.name}}</td>
+             <td>{{course.description}}</td>
+              <td>{{course.is_active}}</td>
+            <td>{{course.created_at}}</td>
+             <td><a href ="{{course.pk}}">View</a>|
+            <a  href ="edit/{{course.pk}}">Edit</a>|
+            <a href ="delete/{{course.pk}}">Delete</a></td>
+        </tr>
+         {% endfor%}
+      </tbody>
+    </table>
+  </body>
+</html>
