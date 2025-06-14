@@ -1,3 +1,5 @@
+setuptools==65.5.1
+wheel
 aiohttp==3.8.3
 aiosignal==1.2.0
 amqp==5.1.1
