@@ -12,5 +12,7 @@ urlpatterns = [
     path('create_course/',views.create_course,name="create_course"),
     path('course/<int:cl>/',views.create_details,name="create_details"),
     path('course/edit/<int:id>/',views.edit_course,name="edit_course"),
-        path('course/delete/<int:id>/',views.delete_course,name="delete_course")
+     path('course/delete/<int:id>/',views.delete_course,name="delete_course"),
+    #api urls
+     path('api', views.fetchAPi, name='student_list'),
 ]

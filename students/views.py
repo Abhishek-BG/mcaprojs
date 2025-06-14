@@ -2,7 +2,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student,Course
 from .forms import StudentForm,CourseForm
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
+
+#API FUNCTION 
+def fetchAPi(request):
+    students = Student.objects.all().values()
+    return JsonResponse(list(students),
+                        safe=False)
+
 # CREATE STUDENT
 def student_create(request):
     if request.method == "POST":
@@ -87,3 +94,7 @@ def delete_course(request,id):
     course_object = get_object_or_404(Course,pk=id)
     course_object.delete()
     return HttpResponse("<h1>Course Deleted</h1>")
+
+
+
+

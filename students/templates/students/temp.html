@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>My App</title>
+    </head>
+    <body>
+        <h1>User Info</h1>
+        <button onclick="loadUser()">Load User</button>
+        <div id="userBox"></div>
+        <script>
+            let table;
+            function loadUser(){
+                fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response =>response.json())
+                .then(data=>{
+            table = `<table border="1px" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>id</th>
+                     <th>name</th>
+                      <th>username</th>
+                      <th>email</th>
+                </tr>
+            </thead>
+            <tbody>`;
+            data.forEach(user =>{
+                table+= `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                     <td>${user.username}</td>
+                      <td>${user.email}</td>
+                </tr>
+                `;
+            });
+            table+='</tbody></table>';
+             document.getElementById('userBox').innerHTML=table;
+                }); 
+            }
+      
+        </script>
+    </body>
+</html>
